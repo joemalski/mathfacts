@@ -400,7 +400,7 @@ def show_problem(val, optr):
     print("{} {} {} = ".format(values[0], optr, values[1]), end='')
 
     i = True
-    answer = int(input(''))
+    answer = input_filter()
     while i is True:
         if answer == values[2]:
             print("{} is CORRECT! Please wait...".format(answer))
@@ -410,7 +410,7 @@ def show_problem(val, optr):
         else: 
             print("{} is WRONG! Try again!\a\n".format(answer))
             print("{} {} {} = ".format(values[0], optr, values[1]), end='')
-            answer = int(input(''))
+            answer = input_filter()
             incorrect = 1
 
     if incorrect == 1:
@@ -576,14 +576,14 @@ def division_loop():
             sleep(1)
 
 
-def input_filter(msg):
+def input_filter(msg=''):
 
     raw = input(msg)
 
     try:
         cleaned = int(raw)
     except ValueError as err:
-        cleaned = err
+        cleaned = '(Non-Integer)'
     
     return cleaned
 
